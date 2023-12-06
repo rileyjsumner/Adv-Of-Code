@@ -1,11 +1,12 @@
 const date = process.argv[2];
+const year = provess.argv[3] ?? "23";
 
-const solution = require(`./12-${date}-23/solution.js`);
-const fs = require("fs");
-const path = require("path");
+const solution = require(`./12-${date}-${year}/solution.js`);
+import { readFileSync } from "fs";
+import { resolve } from "path";
 
 const getInput = () => {
-  return fs.readFileSync(path.resolve(`${__dirname}/12-${date}-23`, "input.txt"), "utf-8").split("\n");
+  return readFileSync(resolve(`${__dirname}/12-${date}-${year}`, "input.txt"), "utf-8").split("\n");
 }
 
 solution.solve(getInput())
